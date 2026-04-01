@@ -11,14 +11,34 @@ const usuarios = [
 ]
 
 
-const separarUsuarios = (usuarios){
+const separarUsuarios = (usuarios) => {
 
-    // for of
+    let mujeres = []
+    let hombres = []
+
+
+    for (const user of usuarios) {
+        console.log(user);
+
+        if (user.sexo === "F") {
+
+            mujeres.push(user)
+
+        } else {
+            hombres.push(user)
+        }
+
+    }
+
+    return {
+        mujeres,
+        hombres
+    }
 }
 
 
 
-// console.log(separarUsuarios(usuarios));
+console.log(separarUsuarios(usuarios));
 // {
 //     mujeres: [{},{}]
 //     hombres: [{},{}]
