@@ -2,7 +2,7 @@
 
 const nombre = "Matias"
 
-    // index: 0, 1
+// index: 0, 1
 const array = [2, 3]
 
 const familia = {
@@ -27,10 +27,10 @@ const usuario = {
     hablar: () => "hola",
     familia,
     aprobados: null,
-    presentar(){
+    presentar() {
         // return "Hola, soy " + this.nombre + " tengo " + this.edad
         return ` Hola, soy ${this.nombre} y tengo ${this.edad}`
-    
+
     },
     "sistema operativo": "Windows"
 }
