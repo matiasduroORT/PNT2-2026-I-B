@@ -5,26 +5,54 @@ const usuariosDB = {
     4: { nombre: "Juan", edad: 22 },
 };
 
+const listaDeAlumnos = [1, 2, 7, 4, 5]
 
-// crear 2 funciones, para obtener los usuarios, una con async await, yo otra con new promise
-// segund el id y usuariosDB
+//crear 2 funciones, para obtener los usuarios
+
+// una con async await
+// otra con new promise
 
 
-function obtenerUsuario(id, usuariosDB){
+function obtenerUsuario(id, usuariosDB) {
 
     // new promise
     // reject
     // resolve
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+            const usuario = usuariosDB[id]
+
+            if (usuario) {
+                resolve(usuario)
+            } else {
+                reject(`Usuario con id: ${id}, no existe`)
+            }
+
+        }, 500);
+
+    })
+
 }
 
 
 
 
-function mostrarUsuarios(ids, usuariosDB){
-
-    // hace falta algo para recorrer los ids
-    obtenerUsuario(id, usuariosDB)
+function mostrarUsuariosConThen(ids, usuariosDB) {
+    console.log("--- Iniciando búsqueda con .then() ---");
+    
+    ids.forEach(id => {
+        obtenerUsuario(id, usuariosDB)
+            .then(usuario => {
+                console.log(`✅ Usuario encontrado: ${usuario.nombre} (ID: ${id})`);
+            })
+            .catch(error => {
+                console.error(`❌ Error: ${error}`);
+            });
+    });
 }
 
 
-mostrarUsuarios([1,2,3,4,5], usuariosDB)
+mostrarUsuariosConThen([1,2,3,4,5], usuariosDB)
