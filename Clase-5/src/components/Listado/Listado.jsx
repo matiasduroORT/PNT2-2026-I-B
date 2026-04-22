@@ -12,8 +12,8 @@ export const Listado = () => {
     // .then( respuesta => respuesta.json())
     // .then( data => console.log(data))
 
-    const respuesta = await fetch("https://thesimpsonsapi.com/api/characters")
-    const data = await respuesta.json()
+    // const respuesta = await fetch("https://thesimpsonsapi.com/api/characters")
+    // const data = await respuesta.json()
 
     setPersonajes(data.results)
   }
@@ -24,6 +24,8 @@ export const Listado = () => {
 
   // hacer un fetch a la api de pokemon
   // traerse todos los pokemons
+  // https://pokeapi.co/api/v2/pokemon?limit=151&offset=0
+  
 
   return (
     <>
