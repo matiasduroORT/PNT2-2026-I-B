@@ -55,6 +55,8 @@ if(edad < 18){
 let licencia = (edad < 18) ? "Licencia Denegada" : "Licencia Otorgada"
 let licencia2 = (edad < 18) ? "Licencia Denegada" : (edad < 21) ? "Permitido con tutor" : "Licencia Otorgada"
 
+// loading === true ? <h2>Cargando</h2> : <h2>Pokemon encontrado</h2>
+ 
 // console.log(licencia);
 
 
