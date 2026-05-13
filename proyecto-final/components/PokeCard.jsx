@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Button, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-export const PokeCard = ({pokemon}) => {
+export const PokeCard = ({pokemon, cambiarPokemon}) => {
 
     // const [pokemon, setPokemon] = useState({})
 
@@ -10,9 +10,9 @@ export const PokeCard = ({pokemon}) => {
     //     const resp = await fetch("https://pokeapi.co/api/v2/pokemon/6")
     //     const data = await resp.json()
 
-    //     console.log("data: ", data.sprites.other.showdown.front_default);
     //     setPokemon(data)
-        
+    
+    //     console.log("data: ", data.sprites.other.showdown.front_default);
     // }
 
 
@@ -20,14 +20,26 @@ export const PokeCard = ({pokemon}) => {
     //    fetchPokemon()
     // }, [])
     
+    if(!pokemon){
+
+        
+        return (
+            <View>
+                <ActivityIndicator />
+            </View>
+        )
+    }
+
+            console.log("Pokemon: ", pokemon.name);
 
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-        <Image style={styles.logo} source={{uri: pokemon.sprites.other.showdown.front_default}} />
+        <Image style={styles.logo} source={{uri: pokemon.sprites?.other?.showdown?.front_default}} />
         <Text style={styles.title}>{pokemon.name}</Text>
+        <Text>{pokemon.id}</Text>
 
-
+        <Button title='Cambiar Pokemon' onPress={cambiarPokemon}/>
     </ScrollView>
   )
 }
